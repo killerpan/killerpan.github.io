@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jose Ruz — Full Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF1F5; --surface:#FFFFFF; --ink:#13213A; --muted:#55657C;
+  --line:#D3DAE4; --amber:#C98A0C; --amber-soft:#F6E3B8; --teal:#2B726F; --teal-soft:#D5E8E6;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1625; --surface:#162136; --ink:#E5EAF2; --muted:#9AA8BC;
+    --line:#26344D; --amber:#F2B53A; --amber-soft:#3A2E12; --teal:#6CC2BC; --teal-soft:#14302F;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1625; --surface:#162136; --ink:#E5EAF2; --muted:#9AA8BC;
+  --line:#26344D; --amber:#F2B53A; --amber-soft:#3A2E12; --teal:#6CC2BC; --teal-soft:#14302F;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:4px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+
+/* Hero */
+.hero{padding:5rem 0 4rem}
+.monogram{
+  width:3.25rem;height:3.25rem;border-radius:50%;display:grid;place-items:center;
+  background:var(--ink);color:var(--paper);font-weight:900;font-size:1.1rem;margin-bottom:1.75rem
+}
+h1{font-size:clamp(2.75rem,7vw,5rem);line-height:.95;font-weight:900;letter-spacing:-.035em;margin:0 0 1.25rem}
+.lede{font-size:1.25rem;color:var(--muted);max-width:32rem;margin:0 0 2rem}
+.links{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.15rem;border-radius:999px;
+  text-decoration:none;font-weight:500;border:1.5px solid var(--ink)
+}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn svg{width:1.1rem;height:1.1rem}
+
+/* Funnel panel: the signature element */
+.panel{
+  background:var(--surface);border:1px solid var(--line);border-radius:1.25rem;padding:1.5rem 1.5rem 1.25rem;
+}
+.panel h2{font-size:1rem;font-weight:700;margin:0}
+.panel p.sub{font-size:.875rem;color:var(--muted);margin:.15rem 0 1.25rem}
+.stage{margin-bottom:.9rem}
+.stage-row{display:flex;justify-content:space-between;font-size:.9375rem;margin-bottom:.3rem}
+.stage-row b{font-variant-numeric:tabular-nums}
+.bar{height:.85rem;border-radius:999px;background:var(--line);overflow:hidden}
+.fill{height:100%;border-radius:999px;background:var(--teal);width:0;transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.stage:last-of-type .fill{background:var(--amber)}
+.panel .note{font-size:.8125rem;color:var(--muted);margin:1rem 0 0;border-top:1px solid var(--line);padding-top:.75rem}
+@media (prefers-reduced-motion:reduce){.fill{transition:none}}
+
+/* Sections */
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+.sec{display:grid;grid-template-columns:14rem 1fr;gap:2.5rem}
+.sec>h2{font-size:1.5rem;font-weight:700;letter-spacing:-.015em;margin:0;line-height:1.2}
+.prose p{margin:0 0 1rem;max-width:40rem}
+
+.job h3{font-size:1.25rem;margin:0 0 .25rem}
+.job .what{color:var(--muted);margin:0 0 1.5rem}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.cols h4{font-size:1rem;margin:0 0 .5rem}
+.cols ul{margin:0;padding-left:1.1rem}
+.cols li{margin-bottom:.3rem}
+
+.stack{display:flex;flex-wrap:wrap;gap:.6rem;list-style:none;padding:0;margin:0}
+.stack li{padding:.45rem .95rem;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-weight:500}
+.stack li.core{background:var(--teal-soft);border-color:transparent}
+
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.feat{background:var(--surface);border:1px solid var(--line);border-radius:1rem;padding:1.5rem}
+.feat h3{font-size:1.125rem;margin:0 0 .4rem}
+.feat p{color:var(--muted);margin:0 0 .9rem}
+.feat ul{margin:0;padding-left:1.1rem}
+
+.repos{list-style:none;margin:0;padding:0}
+.repo{display:grid;grid-template-columns:1fr auto;gap:.25rem 1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.repo:first-child{padding-top:0}
+.repo a{font-weight:700;text-decoration:none}
+.repo a:hover{text-decoration:underline;text-decoration-color:var(--amber);text-underline-offset:3px}
+.repo .desc{grid-column:1;color:var(--muted);font-size:.9375rem;margin:0}
+.lang{grid-row:1 / span 2;grid-column:2;align-self:center;display:flex;align-items:center;gap:.45rem;font-size:.875rem;color:var(--muted)}
+.dot{width:.7rem;height:.7rem;border-radius:50%}
+.group-title{font-size:.9375rem;font-weight:700;color:var(--muted);margin:2rem 0 .75rem}
+.group-title:first-child{margin-top:0}
+
+footer{padding:2.5rem 0 3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.9375rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+
+@media (max-width:52rem){
+  .hero{padding-top:3rem}
+  .sec{grid-template-columns:1fr;gap:1.25rem}
+  .cols,.feature{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="wrap hero">
+  <div>
+    <div class="monogram" aria-hidden="true">JR</div>
+    <h1>Jose Ruz</h1>
+    <p class="lede">Desarrollador Full Stack con Angular y .NET. Construyo plataformas de gestión para concesionarios: usuarios, roles y dashboards que convierten datos comerciales en decisiones.</p>
+    <nav class="links" aria-label="Enlaces">
+      <a class="btn primary" href="https://github.com/killerpan" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        Ver GitHub
+      </a>
+      <a class="btn" href="https://www.linkedin.com/in/jose-ign-ruz" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.15C0 .52.52 0 1.17 0h13.66C15.48 0 16 .52 16 1.15v13.7c0 .63-.52 1.15-1.17 1.15H1.17C.52 16 0 15.48 0 14.85V1.15zM4.94 13.4V6.17H2.54v7.23h2.4zM3.74 5.18c.84 0 1.36-.56 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .69.52 1.25 1.33 1.25h.01zM8.66 13.4V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.63v3.88h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.27 0-1.84.7-2.16 1.2v.02h-.02l.02-.02V6.17h-2.4c.03.68 0 7.23 0 7.23h2.4z"/></svg>
+        LinkedIn
+      </a>
+      <a class="btn" href="#proyectos">Ver proyectos</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="sobre-mi">
+    <div class="wrap sec">
+      <h2>Sobre mí</h2>
+      <div class="prose">
+        <p>Soy desarrollador Full Stack enfocado en aplicaciones modernas y escalables. Mi experiencia está en plataformas de gestión automotriz, donde desarrollo soluciones para concesionarios que incluyen manejo de usuarios, dashboards y métricas de negocio.</p>
+        <p>Lo que más me interesa es la arquitectura frontend, el manejo de estado y la integración eficiente con APIs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <div class="wrap sec">
+      <h2>Experiencia</h2>
+      <div class="job">
+        <h3>Plataforma de gestión automotriz</h3>
+        <p class="what">Sistema para la gestión de concesionarios y ventas.</p>
+        <div class="cols">
+          <div>
+            <h4>Responsabilidades</h4>
+            <ul>
+              <li>Desarrollo frontend con Angular</li>
+              <li>Manejo de estado con NgRx</li>
+              <li>Integración con APIs en .NET</li>
+              <li>Gestión de usuarios y roles</li>
+              <li>Desarrollo de dashboards</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Funcionalidades</h4>
+            <ul>
+              <li>Administración de usuarios</li>
+              <li>Métricas de leads y conversión</li>
+              <li>Visualización de datos comerciales</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="wrap sec">
+      <h2>Tecnologías</h2>
+      <ul class="stack">
+        <li class="core">Angular</li>
+        <li class="core">.NET</li>
+        <li class="core">TypeScript</li>
+        <li class="core">NgRx</li>
+        <li class="core">SQL Server</li>
+        <li>Java</li>
+        <li>Python</li>
+        <li>Cordova</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <div class="wrap sec">
+      <h2>Proyectos destacados</h2>
+      <div class="feature">
+        <article class="feat">
+          <h3>Dashboard de leads</h3>
+          <p>Visualización de métricas comerciales para concesionarios.</p>
+          <ul>
+            <li>Conversión de leads</li>
+            <li>Distribución de actividad</li>
+            <li>KPIs de ventas</li>
+          </ul>
+        </article>
+        <article class="feat">
+          <h3>Gestión de usuarios y roles</h3>
+          <p>Módulo completo para administrar usuarios.</p>
+          <ul>
+            <li>CRUD de usuarios</li>
+            <li>Roles por concesionario</li>
+            <li>Manejo de permisos</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="repositorios">
+    <div class="wrap sec">
+      <h2>Repositorios públicos</h2>
+      <div>
+        <p class="group-title">Angular y TypeScript</p>
+        <ul class="repos">
+          <li class="repo">
+            <a href="https://github.com/killerpan/PruebaTecnicaCarsales" target="_blank" rel="noopener">PruebaTecnicaCarsales</a>
+            <p class="desc">Prueba técnica para Carsales.</p>
+            <span class="lang"><span class="dot" style="background:#3178c6"></span>TypeScript</span>
+          </li>
+          <li class="repo">
+            <a href="https://github.com/killerpan/Angularbasicos" target="_blank" rel="noopener">Angularbasicos</a>
+            <p class="desc">Primera parte de un curso de Angular.</p>
+            <span class="lang"><span class="dot" style="background:#3178c6"></span>TypeScript</span>
+          </li>
+        </ul>
+
+        <p class="group-title">Móvil y biometría</p>
+        <ul class="repos">
+          <li class="repo">
+            <a href="https://github.com/killerpan/biometriafacialdemo" target="_blank" rel="noopener">biometriafacialdemo</a>
+            <p class="desc">Demo de biometría facial.</p>
+            <span class="lang"><span class="dot" style="background:#b07219"></span>Java</span>
+          </li>
+          <li class="repo">
+            <a href="https://github.com/killerpan/Demo-EBIO" target="_blank" rel="noopener">Demo-EBIO</a>
+            <p class="desc">Demo para EBIO.</p>
+            <span class="lang"><span class="dot" style="background:#b07219"></span>Java</span>
+          </li>
+          <li class="repo">
+            <a href="https://github.com/killerpan/DemoPluginCordova" target="_blank" rel="noopener">DemoPluginCordova</a>
+            <p class="desc">Demo de un plugin para Cordova.</p>
+            <span class="lang"><span class="dot" style="background:#b07219"></span>Java</span>
+          </li>
+        </ul>
+
+        <p class="group-title">Automatización</p>
+        <ul class="repos">
+          <li class="repo">
+            <a href="https://github.com/killerpan/whatsapp_killer" target="_blank" rel="noopener">whatsapp_killer</a>
+            <p class="desc">Proyecto en Python.</p>
+            <span class="lang"><span class="dot" style="background:#3572A5"></span>Python</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Jose Ruz, Full Stack Developer</span>
+    <span style="display:flex;gap:1.25rem;flex-wrap:wrap">
+      <a href="https://github.com/killerpan" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/jose-ign-ruz" target="_blank" rel="noopener">LinkedIn</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
