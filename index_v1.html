@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jose Ignacio Ruz · Software Engineer</title>
+<meta name="description" content="Jose Ignacio Ruz, Semi Senior Software Engineer en Carsales. 10 años construyendo servicios y productos digitales con .NET, Angular y AWS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF1F5; --surface:#FFFFFF; --ink:#13213A; --muted:#55657C;
+  --line:#D3DAE4; --amber:#C98A0C; --teal:#2B726F; --teal-soft:#D5E8E6;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1625; --surface:#162136; --ink:#E5EAF2; --muted:#9AA8BC;
+    --line:#26344D; --amber:#F2B53A; --teal:#6CC2BC; --teal-soft:#14302F;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1625; --surface:#162136; --ink:#E5EAF2; --muted:#9AA8BC;
+  --line:#26344D; --amber:#F2B53A; --teal:#6CC2BC; --teal-soft:#14302F;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:4px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+
+/* Hero */
+.hero{padding:5rem 0 4rem}
+.monogram{
+  width:3.25rem;height:3.25rem;border-radius:50%;display:grid;place-items:center;
+  background:var(--ink);color:var(--paper);font-weight:900;font-size:1.1rem;margin-bottom:1.75rem
+}
+h1{font-size:clamp(2.75rem,7vw,5rem);line-height:.95;font-weight:900;letter-spacing:-.035em;margin:0 0 .75rem}
+.role{font-size:1.25rem;font-weight:500;margin:0 0 1.25rem}
+.lede{font-size:1.25rem;color:var(--muted);max-width:36rem;margin:0 0 2rem}
+.facts{display:flex;flex-wrap:wrap;gap:2.5rem;margin:0 0 2.25rem;padding:0;list-style:none}
+.facts b{display:block;font-size:2rem;font-weight:900;letter-spacing:-.02em;line-height:1.1}
+.facts span{color:var(--muted);font-size:.9375rem}
+.links{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.15rem;border-radius:999px;
+  text-decoration:none;font-weight:500;border:1.5px solid var(--ink)
+}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn svg{width:1.1rem;height:1.1rem}
+
+/* Sections */
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+.sec{display:grid;grid-template-columns:14rem 1fr;gap:2.5rem}
+.sec>h2{font-size:1.5rem;font-weight:700;letter-spacing:-.015em;margin:0;line-height:1.2}
+.prose p{margin:0 0 1rem;max-width:40rem}
+.prose p:last-child{margin-bottom:0}
+
+/* Timeline */
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline::before{content:"";position:absolute;left:.4rem;top:.6rem;bottom:.6rem;width:2px;background:var(--line)}
+.job{position:relative;padding:0 0 2.5rem 2.25rem}
+.job:last-child{padding-bottom:0}
+.job::before{
+  content:"";position:absolute;left:0;top:.45rem;width:.95rem;height:.95rem;border-radius:50%;
+  background:var(--paper);border:2.5px solid var(--teal)
+}
+.job.current::before{background:var(--amber);border-color:var(--amber)}
+.job .when{font-size:.9375rem;color:var(--muted);margin:0}
+.job h3{font-size:1.25rem;margin:.1rem 0 0;line-height:1.3}
+.job .org{font-weight:500;margin:0 0 .6rem}
+.job p.sum{margin:0 0 .75rem;max-width:42rem}
+.job ul{margin:0;padding-left:1.1rem;max-width:42rem}
+.job li{margin-bottom:.35rem}
+.job li strong{font-weight:700}
+.note-acct{margin:.9rem 0 0;max-width:42rem;padding:.75rem 1rem;border-left:3px solid var(--amber);background:var(--surface);border-radius:0 .5rem .5rem 0;font-size:.9375rem;color:var(--muted)}
+.note-acct a{color:var(--ink);font-weight:500}
+.acct-intro{color:var(--muted);margin:0 0 1.75rem;max-width:40rem}
+.acct-intro a{color:var(--ink);font-weight:500}
+
+/* Featured */
+.feature{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.feat{background:var(--surface);border:1px solid var(--line);border-radius:1rem;padding:1.5rem}
+.feat .ctx{font-size:.875rem;color:var(--teal);font-weight:500;margin:0 0 .35rem}
+.feat h3{font-size:1.125rem;margin:0 0 .5rem;line-height:1.3}
+.feat p{color:var(--muted);margin:0 0 .75rem;font-size:.9688rem}
+.feat .tech{font-size:.875rem;color:var(--ink);margin:0}
+
+/* Carsales work */
+.work{display:grid;grid-template-columns:1fr 1fr;gap:2rem 2.5rem}
+.work article{border-top:2px solid var(--teal);padding-top:1rem}
+.work h3{font-size:1.0625rem;margin:0 0 .4rem;line-height:1.3}
+.work p{color:var(--muted);margin:0 0 .6rem;font-size:.9688rem}
+.work .tech{color:var(--ink);font-size:.875rem;margin:0}
+
+/* Stack */
+.stack-groups{display:grid;gap:1.5rem}
+.stack-groups h3{font-size:.9375rem;font-weight:700;color:var(--muted);margin:0 0 .6rem}
+.stack{display:flex;flex-wrap:wrap;gap:.6rem;list-style:none;padding:0;margin:0}
+.stack li{padding:.45rem .95rem;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-weight:500;font-size:.9688rem}
+.stack li.core{background:var(--teal-soft);border-color:transparent}
+
+/* Certs + education */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.two h3{font-size:1.0625rem;margin:0 0 .75rem}
+.plain{list-style:none;margin:0;padding:0}
+.plain li{padding:.6rem 0;border-bottom:1px solid var(--line)}
+.plain li:first-child{padding-top:0}
+.plain li span{display:block;color:var(--muted);font-size:.9375rem}
+
+/* Repos */
+.repos{list-style:none;margin:0;padding:0}
+.repo{display:grid;grid-template-columns:1fr auto;gap:.25rem 1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.repo:first-child{padding-top:0}
+.repo a{font-weight:700;text-decoration:none}
+.repo a:hover{text-decoration:underline;text-decoration-color:var(--amber);text-underline-offset:3px}
+.repo .desc{grid-column:1;color:var(--muted);font-size:.9375rem;margin:0}
+.lang{grid-row:1 / span 2;grid-column:2;align-self:center;display:flex;align-items:center;gap:.45rem;font-size:.875rem;color:var(--muted)}
+.dot{width:.7rem;height:.7rem;border-radius:50%}
+.group-title{font-size:.9375rem;font-weight:700;color:var(--muted);margin:2rem 0 .75rem}
+.group-title:first-child{margin-top:0}
+
+footer{padding:2.5rem 0 3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.9375rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+footer .flinks{display:flex;gap:1.25rem;flex-wrap:wrap}
+
+@media (max-width:60rem){
+  .feature{grid-template-columns:1fr 1fr}
+}
+@media (max-width:52rem){
+  .hero{padding-top:3rem}
+  .sec{grid-template-columns:1fr;gap:1.25rem}
+  .feature,.two,.work{grid-template-columns:1fr}
+  .facts{gap:1.75rem}
+}
+</style>
+</head>
+<body>
+
+<header class="wrap hero">
+  <div class="monogram" aria-hidden="true">JR</div>
+  <h1>Jose Ignacio Ruz</h1>
+  <p class="role">Software Engineer en .NET, Angular, AWS y datos</p>
+  <p class="lede">Construyo servicios, productos digitales y pipelines de datos con .NET, Angular y AWS. Durante más de cinco años trabajé en la plataforma de Carsales para Chile, México y Argentina; antes diseñé sistemas de firma electrónica y biometría en E-CertChile.</p>
+  <ul class="facts">
+    <li><b>10 años</b><span>en desarrollo de software</span></li>
+    <li><b>3 países</b><span>en la plataforma de Carsales</span></li>
+    <li><b>Web, API y móvil</b><span>de punta a punta</span></li>
+  </ul>
+  <nav class="links" aria-label="Enlaces">
+    <a class="btn primary" href="https://www.linkedin.com/in/jose-ign-ruz" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.15C0 .52.52 0 1.17 0h13.66C15.48 0 16 .52 16 1.15v13.7c0 .63-.52 1.15-1.17 1.15H1.17C.52 16 0 15.48 0 14.85V1.15zM4.94 13.4V6.17H2.54v7.23h2.4zM3.74 5.18c.84 0 1.36-.56 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .69.52 1.25 1.33 1.25h.01zM8.66 13.4V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.63v3.88h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.27 0-1.84.7-2.16 1.2v.02h-.02l.02-.02V6.17h-2.4c.03.68 0 7.23 0 7.23h2.4z"/></svg>
+      LinkedIn
+    </a>
+    <a class="btn" href="https://github.com/killerpan" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+    <a class="btn" href="#experiencia">Ver experiencia</a>
+  </nav>
+</header>
+
+<main>
+  <section id="sobre-mi">
+    <div class="wrap sec">
+      <h2>Sobre mí</h2>
+      <div class="prose">
+        <p>Soy ingeniero de software con 10 años en el sector IT, enfocado en crear servicios y productos digitales. En Carsales desarrollé y mantuve servicios para Chileautos, Demotores y Soloautos, trabajando directamente con el equipo de casa matriz en Australia y con distintos productos de AWS. Ahí también me involucré en datos, automatización y herramientas internas para el equipo.</p>
+        <p>Antes, en E-CertChile, me especialicé en arquitectura de software para firma electrónica y biometría dactilar y facial, y lideré el equipo que llevó la biometría facial a Android e iOS.</p>
+        <p>Me considero proactivo, me gusta trabajar en equipo y resolver incidencias difíciles. Aprendo por mi cuenta de forma constante; hoy me interesan especialmente la seguridad ofensiva y la automatización con IA.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <div class="wrap sec">
+      <h2>Experiencia</h2>
+      <ol class="timeline" reversed>
+        <li class="job">
+          <p class="when">Marzo 2021 – octubre 2026</p>
+          <h3>Semi Senior Software Engineer</h3>
+          <p class="org">Carsales · Santiago</p>
+          <p class="sum">Desarrollo para Carsales Latinoamérica (Chileautos, Demotores y Soloautos) con .NET, .NET Core y Angular, con Scrum.</p>
+          <ul>
+            <li>Desarrollo y mantención de <strong>Control Panel</strong>, la herramienta interna de gestión para concesionarios: usuarios y roles, dashboards y métricas de leads.</li>
+            <li>Mantención de servicios de casa matriz, en coordinación directa con el equipo de Australia.</li>
+            <li>Pipelines de datos y reportería para el inventario de vehículos sobre AWS y Databricks.</li>
+            <li>Automatización de CI/CD y herramientas internas con GitHub Actions y Jenkins.</li>
+          </ul>
+          <p class="note-acct">Este trabajo vive en repositorios privados de la empresa, bajo mi cuenta corporativa <a href="https://github.com/jruzcarsales" target="_blank" rel="noopener">jruzcarsales</a>. Mi cuenta personal, <a href="https://github.com/killerpan" target="_blank" rel="noopener">killerpan</a>, reúne proyectos propios y de etapas anteriores.</p>
+        </li>
+        <li class="job">
+          <p class="when">Octubre 2017 – enero 2021</p>
+          <h3>Ingeniero de software</h3>
+          <p class="org">E-CertChile · Santiago</p>
+          <p class="sum">Diseño y construcción de software web, API, servicios y aplicaciones móviles para firma electrónica e identidad.</p>
+          <ul>
+            <li>Lideré un equipo de 3 personas y un proveedor en el proyecto de <strong>Biometría Facial</strong> para Android (Java) e iOS (Swift), integrado con firma electrónica y gestor documental.</li>
+            <li>Diseñé y construí <strong>Firma Avanzada Online</strong>: API, frontend y base de datos para firmar documentos, con validación de identidad mediante buró de información y Clave Única.</li>
+            <li>Construí el <strong>Servicio de Validación Remota</strong>, la plataforma <strong>EPAC</strong> para mandatos PAC y la <strong>firma electrónica por tablet</strong> en Android.</li>
+            <li>Migré todo el código fuente de Team Foundation Server y GitHub a GitLab, y diseñé los flujos de aprobación del repositorio.</li>
+          </ul>
+        </li>
+        <li class="job">
+          <p class="when">Marzo – octubre 2017</p>
+          <h3>Project Manager</h3>
+          <p class="org">Grupo EULEN · Santiago</p>
+          <ul>
+            <li>Diseñé y construí el sistema completo <strong>GestFact V2</strong> (base de datos, frontend y backend en C# .NET).</li>
+            <li>Gestioné el proyecto de punta a punta, desde el levantamiento de requerimientos hasta la liberación.</li>
+          </ul>
+        </li>
+        <li class="job">
+          <p class="when">Febrero 2016 – marzo 2017</p>
+          <h3>Consultor informático</h3>
+          <p class="org">Grupo InCubo · Santiago</p>
+          <ul>
+            <li>Optimicé el sistema <strong>GESERV</strong> para CorpBanca, reduciendo los tiempos de procesamiento en un 80%.</li>
+            <li>Diseñé y construí <strong>Control de Rondas</strong>, una app con tecnología NFC (Java) y sus servicios en C#.</li>
+            <li>Definí y documenté la arquitectura para proyectos nuevos y existentes.</li>
+          </ul>
+        </li>
+        <li class="job">
+          <p class="when">Marzo 2015 – diciembre 2016</p>
+          <h3>Líder de Track Android</h3>
+          <p class="org">CITT Duoc UC · Concepción</p>
+          <ul>
+            <li>Dicté el taller de Android y representé a la sede en los encuentros nacionales del CITT.</li>
+            <li>Presenté <strong>Korner</strong>, app para agendar labores en una planta automotriz, y <strong>Vocabulary Master</strong>, un juego para aprender inglés.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="carsales">
+    <div class="wrap sec">
+      <h2>Trabajo en Carsales</h2>
+      <div>
+        <p class="acct-intro">Además del desarrollo web, en Carsales trabajé en datos, automatización y herramientas internas. El código es privado, así que aquí lo describo a grandes rasgos.</p>
+        <div class="work">
+          <article>
+            <h3>Pipeline de datos de inventario</h3>
+            <p>Diseño de un flujo de punta a punta desde DynamoDB hacia S3 y Databricks, con arquitectura medallion sobre Delta Lake.</p>
+            <p class="tech">DynamoDB, S3, Databricks, Delta Lake</p>
+          </article>
+          <article>
+            <h3>Extracción histórica de inventario</h3>
+            <p>Procesos en Python que extraen el histórico de vehículos combinando OpenSearch y DynamoDB, y lo guardan en Parquet particionado para reportería.</p>
+            <p class="tech">Python, OpenSearch, DynamoDB, Parquet</p>
+          </article>
+          <article>
+            <h3>Notificaciones para el equipo</h3>
+            <p>Sistema que avisa en Microsoft Teams sobre pull requests estancados y diferencias entre ramas y ambientes.</p>
+            <p class="tech">GitHub Actions, Microsoft Teams</p>
+          </article>
+          <article>
+            <h3>Procesos automáticos en base de datos</h3>
+            <p>Tareas programadas que reinician cada mes los paquetes de leads de los concesionarios, sin intervención manual.</p>
+            <p class="tech">PostgreSQL, pg_cron</p>
+          </article>
+          <article>
+            <h3>Documentación de arquitectura con IA</h3>
+            <p>Skill de Claude que analiza proyectos Angular y ASP.NET y genera su documentación de arquitectura con el modelo 4+1, incluidos diagramas, lista para Confluence.</p>
+            <p class="tech">Claude, draw.io, Confluence</p>
+          </article>
+          <article>
+            <h3>Planificación de seguridad ofensiva</h3>
+            <p>Planes de pruebas de penetración para plataformas web siguiendo OWASP, PTES y NIST SP 800-115: autenticación, inyección, control de acceso y riesgos de terceros.</p>
+            <p class="tech">OWASP, PTES, NIST SP 800-115</p>
+          </article>
+          <article>
+            <h3>Auditoría GEO/SEO</h3>
+            <p>Audité el portal público chileautos.cl y el Control Panel de la plataforma para mejorar su visibilidad ante buscadores y sistemas de IA: datos estructurados, rendimiento y rastreabilidad.</p>
+            <p class="tech">Schema.org, Core Web Vitals, SEO técnico</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <div class="wrap sec">
+      <h2>Proyectos destacados</h2>
+      <div class="feature">
+        <article class="feat">
+          <p class="ctx">Carsales</p>
+          <h3>Control Panel</h3>
+          <p>Herramienta de gestión para concesionarios: usuarios y roles por concesionario, permisos y dashboards de leads, conversión y KPIs de ventas.</p>
+          <p class="tech">Angular, NgRx, .NET, AWS</p>
+        </article>
+        <article class="feat">
+          <p class="ctx">E-CertChile</p>
+          <h3>Biometría Facial</h3>
+          <p>Apps móviles que validan identidad por reconocimiento facial y firman documentos electrónicamente. Lideré el equipo.</p>
+          <p class="tech">Java (Android), Swift (iOS), C# .NET</p>
+        </article>
+        <article class="feat">
+          <p class="ctx">E-CertChile</p>
+          <h3>Firma Avanzada Online</h3>
+          <p>Plataforma para firmar documentos en línea, con envío de correos y validación de identidad con buró de información y Clave Única.</p>
+          <p class="tech">C# .NET MVC, Java</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="wrap sec">
+      <h2>Tecnologías</h2>
+      <div class="stack-groups">
+        <div>
+          <h3>Backend y frontend</h3>
+          <ul class="stack">
+            <li class="core">C# .NET</li>
+            <li class="core">.NET Core</li>
+            <li class="core">Angular</li>
+            <li class="core">TypeScript</li>
+            <li>NgRx</li>
+            <li>Java</li>
+            <li>Python</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Móvil</h3>
+          <ul class="stack">
+            <li class="core">Android</li>
+            <li>iOS (Swift)</li>
+            <li>Cordova</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Nube, datos y entrega</h3>
+          <ul class="stack">
+            <li class="core">AWS</li>
+            <li class="core">Databricks</li>
+            <li>DynamoDB</li>
+            <li>S3</li>
+            <li>Delta Lake</li>
+            <li>PostgreSQL</li>
+            <li>OpenSearch</li>
+            <li>SQL Server</li>
+            <li>GitHub Actions</li>
+            <li>Jenkins</li>
+            <li>GitLab</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Otras áreas</h3>
+          <ul class="stack">
+            <li>Ethical hacking</li>
+            <li>Pentesting (OWASP, PTES)</li>
+            <li>GEO / SEO técnico</li>
+            <li>Claude (Anthropic)</li>
+            <li>Scrum</li>
+            <li>Liderazgo de equipos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formacion">
+    <div class="wrap sec">
+      <h2>Formación</h2>
+      <div class="two">
+        <div>
+          <h3>Certificaciones</h3>
+          <ul class="plain">
+            <li>Claude 101<span>Anthropic</span></li>
+            <li>Pentesting Pro</li>
+            <li>Scrum Foundation Professional Certificate (SFPC)</li>
+            <li>Angular de cero a experto</li>
+            <li>Fundamentos generales: orquestación y automatización IT</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Educación</h3>
+          <ul class="plain">
+            <li>Ingeniería en Informática<span>Duoc UC, 2012 – 2016</span></li>
+          </ul>
+          <h3 style="margin-top:1.75rem">Idiomas</h3>
+          <ul class="plain">
+            <li>Inglés<span>Nivel profesional</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="repositorios">
+    <div class="wrap sec">
+      <h2>Repositorios públicos</h2>
+      <div>
+        <p class="acct-intro">Uso dos cuentas de GitHub: <a href="https://github.com/killerpan" target="_blank" rel="noopener">killerpan</a> para proyectos personales y <a href="https://github.com/jruzcarsales" target="_blank" rel="noopener">jruzcarsales</a> para mi trabajo en Carsales, donde la mayor parte del código es privado.</p>
+        <p class="group-title">Angular y TypeScript</p>
+        <ul class="repos">
+          <li class="repo">
+            <a href="https://github.com/killerpan/PruebaTecnicaCarsales" target="_blank" rel="noopener">PruebaTecnicaCarsales</a>
+            <p class="desc">Prueba técnica para Carsales.</p>
+            <span class="lang"><span class="dot" style="background:#3178c6"></span>TypeScript</span>
+          </li>
+          <li class="repo">
+            <a href="https://github.com/killerpan/Angularbasicos" target="_blank" rel="noopener">Angularbasicos</a>
+            <p class="desc">Primera parte de un curso de Angular.</p>
+            <span class="lang"><span class="dot" style="background:#3178c6"></span>TypeScript</span>
+          </li>
+        </ul>
+
+        <p class="group-title">Móvil y biometría</p>
+        <ul class="repos">
+          <li class="repo">
+            <a href="https://github.com/killerpan/biometriafacialdemo" target="_blank" rel="noopener">biometriafacialdemo</a>
+            <p class="desc">Demo de biometría facial.</p>
+            <span class="lang"><span class="dot" style="background:#b07219"></span>Java</span>
+          </li>
+          <li class="repo">
+            <a href="https://github.com/killerpan/Demo-EBIO" target="_blank" rel="noopener">Demo-EBIO</a>
+            <p class="desc">Demo para EBIO.</p>
+            <span class="lang"><span class="dot" style="background:#b07219"></span>Java</span>
+          </li>
+          <li class="repo">
+            <a href="https://github.com/killerpan/DemoPluginCordova" target="_blank" rel="noopener">DemoPluginCordova</a>
+            <p class="desc">Demo de un plugin para Cordova.</p>
+            <span class="lang"><span class="dot" style="background:#b07219"></span>Java</span>
+          </li>
+        </ul>
+
+        <p class="group-title">Automatización</p>
+        <ul class="repos">
+          <li class="repo">
+            <a href="https://github.com/killerpan/whatsapp_killer" target="_blank" rel="noopener">whatsapp_killer</a>
+            <p class="desc">Proyecto en Python.</p>
+            <span class="lang"><span class="dot" style="background:#3572A5"></span>Python</span>
+          </li>
+        </ul>
+
+        <p class="group-title">Testing (cuenta jruzcarsales)</p>
+        <ul class="repos">
+          <li class="repo">
+            <a href="https://github.com/jruzcarsales/test-cypress" target="_blank" rel="noopener">test-cypress</a>
+            <p class="desc">Pruebas con Cypress.</p>
+            <span class="lang">Cypress</span>
+          </li>
+          <li class="repo">
+            <a href="https://github.com/jruzcarsales/animal-shelter-ui" target="_blank" rel="noopener">animal-shelter-ui</a>
+            <p class="desc">Fork de holgiosalos/animal-shelter-ui.</p>
+            <span class="lang"><span class="dot" style="background:#f1e05a"></span>JavaScript</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Jose Ignacio Ruz, Software Engineer · Chile</span>
+    <span class="flinks">
+      <a href="https://www.linkedin.com/in/jose-ign-ruz" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/killerpan" target="_blank" rel="noopener">GitHub personal</a>
+      <a href="https://github.com/jruzcarsales" target="_blank" rel="noopener">GitHub Carsales</a>
+    </span>
+  </div>
+</footer>
+</body>
+</html>
